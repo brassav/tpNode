@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ajouter une conference</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Enigma Conf</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/conference">Conferences</a>
+            </li>
+            <% if (user.isAdmin){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/conference/add"
+                >Ajouter une conference</a
+              >
+            </li>
+            <% } %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/login/disconnect">Deconnexion</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <h1>Ajouter une conference</h1>
+    <form method="POST" action="add">
+      <div class="form-group">
+        <label for="name">Nom de la conference</label>
+        <input
+          name="name"
+          type="text"
+          class="form-control"
+          id="pseudo"
+          placeholder="Nom"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Auteur de la conference</label>
+        <input
+          name="autor"
+          type="text"
+          class="form-control"
+          id="pseudo"
+          placeholder="Auteur"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Date de la conference</label>
+        <input
+          name="date"
+          type="text"
+          class="form-control"
+          id="date"
+          placeholder="jj/mm/aaaa"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Heure de debut de la conference</label>
+        <input
+          name="timeBegin"
+          type="text"
+          class="form-control"
+          id="timeBegin"
+          placeholder="hh:mm"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Heure de fin de la conference</label>
+        <input
+          name="timeEnd"
+          type="text"
+          class="form-control"
+          id="timeEnd"
+          placeholder="hh:mm"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Nombre de personne max</label>
+        <input
+          name="maxPeople"
+          type="number"
+          class="form-control"
+          id="timeEnd"
+          min="50"
+          value="50"
+          placeholder="100"
+        />
+      </div>
+      <div style="color:red;">
+        <%= error %>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>
