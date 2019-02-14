@@ -30,7 +30,6 @@ router.post("/", function(req, res, next) {
       if (element.pseudo === user.pseudo) {
         find = true;
         if (element.password === user.password) {
-          //sessionStorage.setItem("pseudo", user.pseudo);
           res.cookie("user", element);
           res.redirect("/conference");
         } else {
